@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hartman AI — AI consulting for real businesses</title>
+<meta name="description" content="Hartman AI helps SMBs automate workflows, optimize social media, and build AI strategies that actually stick — without the corporate fluff.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────── -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav__logo" aria-label="Hartman AI home">
+    <span class="nav__logo-name">Hartman</span>
+    <span class="nav__logo-tag">AI</span>
+  </a>
+  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="nav__links" id="navLinks">
+    <a href="#services" class="nav__link">Services</a>
+    <a href="#how" class="nav__link">How it works</a>
+    <a href="#testimonials" class="nav__link">Work</a>
+    <a href="#cta" class="nav__link">Contact</a>
+    <a href="#" class="nav__cta" data-calendly>Book a Call</a>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────── -->
+<section class="hero" id="top">
+  <canvas class="hero__mesh" id="heroMesh" aria-hidden="true"></canvas>
+  <div class="hero__inner">
+    <div class="hero__tag" id="heroTag">
+      <span class="hero__tag-dot"></span>
+      <span class="hero__tag-text" id="heroTagText">Workflow Automation</span>
+    </div>
+    <h1 class="hero__title">
+      AI that works<br>
+      for <em>your</em><br>
+      <span class="hero__title-mark">business<span class="hero__title-dot">.</span></span>
+    </h1>
+    <p class="hero__sub">We help SMBs automate workflows, optimize social media, and build AI strategies that actually stick. No corporate fluff.</p>
+    <div class="hero__ctas">
+      <a href="#" class="btn btn--primary" data-calendly>Book a free audit →</a>
+      <a href="#services" class="btn btn--ghost">See our work</a>
+    </div>
+    <div class="hero__stats">
+      <div class="stat"><div class="stat__num">40+</div><div class="stat__label">SMBs served</div></div>
+      <div class="stat-rule" aria-hidden="true"></div>
+      <div class="stat"><div class="stat__num">3×</div><div class="stat__label">avg. time saved</div></div>
+      <div class="stat-rule" aria-hidden="true"></div>
+      <div class="stat"><div class="stat__num">100%</div><div class="stat__label">human-first</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ────────────────────────────── -->
+<section class="services services--dark" id="services">
+  <div class="services__head">
+    <div class="eyebrow">What we do</div>
+    <h2 class="section-title">Services built for<br><em>real businesses.</em></h2>
+    <p class="section-lead">No bloated tech stacks. No 6-month engagements before anything ships. Just focused, practical AI that moves fast.</p>
+  </div>
+  <div class="services__grid">
+
+    <article class="service-card">
+      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <div class="service-card__tag">Core Service</div>
+      <h3 class="service-card__title">Workflow Automation</h3>
+      <p class="service-card__body">We map your most time-consuming processes and automate the repetitive parts — from data entry to client onboarding — using AI tools that fit your existing stack.</p>
+      <div class="service-card__stat"><span class="service-card__stat-num">3× faster</span><span class="service-card__stat-label">average workflow speed</span></div>
+    </article>
+
+    <article class="service-card">
+      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+      <div class="service-card__tag">Strategy</div>
+      <h3 class="service-card__title">AI Strategy &amp; Roadmapping</h3>
+      <p class="service-card__body">Not sure where AI fits in your business? We audit your operations, identify the highest-ROI opportunities, and give you a clear, jargon-free plan to act on.</p>
+      <div class="service-card__stat"><span class="service-card__stat-num">90 min</span><span class="service-card__stat-label">to a clear AI roadmap</span></div>
+    </article>
+
+    <article class="service-card">
+      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-2.5 2.5-5 5c-1.5-3-4-5-7-5C5 4 2 7 2 10.5c0 5.5 10 10.5 10 10.5s10-5 10-10.5c0-1-.2-2-.6-2.9"/></svg></div>
+      <div class="service-card__tag">Marketing</div>
+      <h3 class="service-card__title">Social Media AI</h3>
+      <p class="service-card__body">From content calendars to auto-scheduling and performance analytics — we set up AI-powered systems that keep your social presence active without draining your team.</p>
+      <div class="service-card__stat"><span class="service-card__stat-num">10 hrs/wk</span><span class="service-card__stat-label">saved on average</span></div>
+    </article>
+
+    <article class="service-card">
+      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div class="service-card__tag">Optimization</div>
+      <h3 class="service-card__title">Process Optimization</h3>
+      <p class="service-card__body">We dig into how your team actually works — then redesign the workflows with AI assist where it counts. Less friction, more output, happier people.</p>
+      <div class="service-card__stat"><span class="service-card__stat-num">60%</span><span class="service-card__stat-label">reduction in admin time</span></div>
+    </article>
+
+    <article class="service-card">
+      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="service-card__tag">Training</div>
+      <h3 class="service-card__title">AI Team Training</h3>
+      <p class="service-card__body">We train your team to use AI tools confidently — from prompting basics to advanced automation — so the gains stick after we're gone.</p>
+      <div class="service-card__stat"><span class="service-card__stat-num">1 day</span><span class="service-card__stat-label">team onboarding</span></div>
+    </article>
+
+    <article class="service-card">
+      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="service-card__tag">Ongoing</div>
+      <h3 class="service-card__title">Fractional AI Consulting</h3>
+      <p class="service-card__body">Need an AI expert in your corner without a full-time hire? We offer ongoing retainer support — strategy, implementation, troubleshooting — as your business grows.</p>
+      <div class="service-card__stat"><span class="service-card__stat-num">Flexible</span><span class="service-card__stat-label">monthly retainers</span></div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ────────────────────────── -->
+<section class="how" id="how">
+  <div class="how__inner">
+    <div class="how__head">
+      <div class="eyebrow">How it works</div>
+      <h2 class="how__title">From first call to<br><em>real results</em><br>in 6 weeks.</h2>
+      <p class="how__sub">We move fast because we've done this before. No six-month discovery phases. No giant deliverables that gather dust. Just focused work that ships.</p>
+      <div class="how__stats">
+        <div class="stat"><div class="stat__num">40+</div><div class="stat__label">clients</div></div>
+        <div class="stat"><div class="stat__num">6 wk</div><div class="stat__label">avg. engagement</div></div>
+        <div class="stat"><div class="stat__num">4.9★</div><div class="stat__label">satisfaction</div></div>
+      </div>
+    </div>
+    <div class="how__steps">
+      <div class="step step--active">
+        <div class="step__line" aria-hidden="true"></div>
+        <div class="step__bubble"><span class="step__num">01</span></div>
+        <div>
+          <div class="step__duration">Week 1</div>
+          <h4 class="step__title">Free workflow audit</h4>
+          <p class="step__body">We spend 90 minutes with your team to map where you're losing time. No pitch. No agenda. Just honest analysis.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step__line" aria-hidden="true"></div>
+        <div class="step__bubble"><span class="step__num">02</span></div>
+        <div>
+          <div class="step__duration">Week 1–2</div>
+          <h4 class="step__title">Custom AI roadmap</h4>
+          <p class="step__body">We deliver a clear, prioritized plan — which tools, which processes, in which order. You keep it regardless of what happens next.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step__line" aria-hidden="true"></div>
+        <div class="step__bubble"><span class="step__num">03</span></div>
+        <div>
+          <div class="step__duration">Weeks 2–6</div>
+          <h4 class="step__title">Build &amp; integrate</h4>
+          <p class="step__body">We implement the first automations ourselves. You watch, ask questions, and start seeing results before the engagement ends.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step__bubble"><span class="step__num">04</span></div>
+        <div>
+          <div class="step__duration">Week 6</div>
+          <h4 class="step__title">Train your team</h4>
+          <p class="step__body">We hand things off properly — with documentation, training, and a recorded walkthrough your team can reference any time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ────────────────────────── -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials__inner">
+    <div class="eyebrow">What clients say</div>
+    <div class="testimonials__stage" id="testimonialStage">
+      <div class="testimonial is-active">
+        <blockquote class="testimonial__quote">"Hartman AI cut our weekly reporting time from 8 hours to 45 minutes. I wish we'd done this sooner."</blockquote>
+        <div class="testimonial__name">Maria T.</div>
+        <div class="testimonial__role">Founder, Bloom Bakery Co.</div>
+      </div>
+      <div class="testimonial">
+        <blockquote class="testimonial__quote">"They didn't try to sell us tools we didn't need. They fixed the actual problem."</blockquote>
+        <div class="testimonial__name">James R.</div>
+        <div class="testimonial__role">Director of Ops, Cascade Roofing</div>
+      </div>
+      <div class="testimonial">
+        <blockquote class="testimonial__quote">"The team training alone was worth it. Our staff actually use the tools now."</blockquote>
+        <div class="testimonial__name">Priya K.</div>
+        <div class="testimonial__role">CEO, Momentum HR</div>
+      </div>
+    </div>
+    <div class="testimonials__dots" id="testimonialDots">
+      <button class="testimonials__dot is-active" aria-label="Show testimonial 1"></button>
+      <button class="testimonials__dot" aria-label="Show testimonial 2"></button>
+      <button class="testimonials__dot" aria-label="Show testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ─────────────────────────────────── -->
+<section class="cta" id="cta">
+  <div class="cta__blob" aria-hidden="true"></div>
+  <div class="cta__inner">
+    <div class="cta__eyebrow">Ready to start?</div>
+    <h2 class="cta__title">Book a free<br><em>workflow audit.</em></h2>
+    <p class="cta__sub">90 minutes. No pitch. Walk away with a clear picture of where AI can help — and where it can't. Yours to keep, no strings attached.</p>
+    <div class="cta__ctas">
+      <a href="#" class="btn btn--cta" data-calendly>Book free audit →</a>
+      <a href="#services" class="btn btn--ghost-light">View services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__cols">
+      <div>
+        <div class="footer__brand-name">Hartman<sup>AI</sup></div>
+        <p class="footer__brand-blurb">AI consulting for real businesses. Human-first, results-focused, no fluff.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-btn">LinkedIn</a>
+          <a href="#" class="footer__social-btn">X</a>
+          <a href="#" class="footer__social-btn">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-head">Services</div>
+        <div class="footer__col-list">
+          <a href="#services" class="footer__col-link">Workflow Automation</a>
+          <a href="#services" class="footer__col-link">AI Strategy</a>
+          <a href="#services" class="footer__col-link">Social Media AI</a>
+          <a href="#services" class="footer__col-link">Process Optimization</a>
+          <a href="#services" class="footer__col-link">AI Training</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-head">Company</div>
+        <div class="footer__col-list">
+          <a href="#" class="footer__col-link">About</a>
+          <a href="#testimonials" class="footer__col-link">Work</a>
+          <a href="#" class="footer__col-link">Blog</a>
+          <a href="#" class="footer__col-link">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-head">Contact</div>
+        <div class="footer__col-list">
+          <a href="#" class="footer__col-link" data-calendly>Book a Call</a>
+          <a href="mailto:hello@hartmanai.com" class="footer__col-link">hello@hartmanai.com</a>
+          <span class="footer__col-link">Based in the US</span>
+          <span class="footer__col-link">Remote-first</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Hartman AI. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="#" class="footer__legal-link">Privacy Policy</a>
+        <a href="#" class="footer__legal-link">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="mesh.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
