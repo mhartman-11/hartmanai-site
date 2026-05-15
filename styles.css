@@ -35,7 +35,7 @@
   --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --nav-height: 72px;
+  --nav-height: 88px;
 }
 
 /* Reset */
@@ -84,7 +84,7 @@ img, svg { display: block; max-width: 100%; }
   display: flex; align-items: center; cursor: pointer;
 }
 .nav__logo-img {
-  height: 40px; width: auto; display: block; object-fit: contain;
+  height: 64px; width: auto; display: block; object-fit: contain;
 }
 .nav__logo-name {
   font-family: var(--font-display);
@@ -628,25 +628,21 @@ img, svg { display: block; max-width: 100%; }
 .footer__brand-row {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   margin-bottom: 16px;
   text-decoration: none;
 }
 .footer__brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 88px;
+  height: 88px;
   object-fit: contain;
   display: block;
-}
-.footer__brand-row .footer__brand-name {
-  margin-bottom: 0;
 }
 .cta__mark {
   display: block;
-  width: 56px;
-  height: 56px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
-  margin: 0 auto 16px;
+  margin: 0 auto 20px;
 }
 .footer__brand-blurb {
   font-family: var(--font-body);
