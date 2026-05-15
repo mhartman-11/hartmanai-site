@@ -81,7 +81,10 @@ img, svg { display: block; max-width: 100%; }
   border-bottom-color: rgba(216, 206, 197, 0.8);
 }
 .nav__logo {
-  display: flex; align-items: baseline; gap: 2px; cursor: pointer;
+  display: flex; align-items: center; cursor: pointer;
+}
+.nav__logo-img {
+  height: 40px; width: auto; display: block; object-fit: contain;
 }
 .nav__logo-name {
   font-family: var(--font-display);
@@ -621,6 +624,29 @@ img, svg { display: block; max-width: 100%; }
   font-size: 14px; color: var(--color-accent);
   font-weight: 700; margin-left: 2px;
   letter-spacing: 0.05em;
+}
+.footer__brand-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+.footer__brand-mark {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+.footer__brand-row .footer__brand-name {
+  margin-bottom: 0;
+}
+.cta__mark {
+  display: block;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin: 0 auto 16px;
 }
 .footer__brand-blurb {
   font-family: var(--font-body);

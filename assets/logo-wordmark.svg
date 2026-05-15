@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" fill="none">
-  
-  <text x="0" y="52" font-family="Georgia, &#39;Times New Roman&#39;, serif" font-size="48" font-weight="700" fill="#1C3329" letter-spacing="-1">Hartman</text>
-  
-  <text x="246" y="36" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#C5533A" letter-spacing="1">AI</text>
-  
-  <rect x="0" y="60" width="228" height="2.5" rx="1.25" fill="#1C3329" opacity="0.15"></rect>
-  <rect x="246" y="42" width="36" height="2" rx="1" fill="#C5533A" opacity="0.5"></rect>
-</svg>
