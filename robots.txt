@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mhartman-11.github.io/hartmanai-site/sitemap.xml

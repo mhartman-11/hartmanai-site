@@ -5,280 +5,353 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hartman AI | AI consulting for small businesses</title>
 <meta name="description" content="Hartman AI works with SMBs to automate the repetitive work, clean up social media, and put AI where it actually pays off. No 6-month engagements.">
+
+<!-- Canonical + social cards. Update URLs when hartmanai.com custom domain returns. -->
+<link rel="canonical" href="https://mhartman-11.github.io/hartmanai-site/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hartman AI">
+<meta property="og:title" content="Hartman AI | AI consulting for small businesses">
+<meta property="og:description" content="I help small businesses automate the repetitive work and put AI where it actually pays off. No 6-month engagements, no buzzwords.">
+<meta property="og:url" content="https://mhartman-11.github.io/hartmanai-site/">
+<meta property="og:image" content="https://mhartman-11.github.io/hartmanai-site/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hartman AI | AI consulting for small businesses">
+<meta name="twitter:description" content="I help small businesses automate the repetitive work and put AI where it actually pays off.">
+<meta name="twitter:image" content="https://mhartman-11.github.io/hartmanai-site/assets/og-image.png">
+
+<meta name="theme-color" content="#0A1410">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ── NAV ─────────────────────────────────── -->
-<nav class="nav" id="nav">
-  <a href="#top" class="nav__logo" aria-label="Hartman AI home">
-    <img src="assets/hartman-ai-wordmark.png" alt="Hartman AI" class="nav__logo-img">
-  </a>
-  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-  <div class="nav__links" id="navLinks">
-    <a href="#services" class="nav__link">Services</a>
-    <a href="#how" class="nav__link">How it works</a>
-    <a href="#work" class="nav__link">Recent Work</a>
-    <a href="#cta" class="nav__link">Contact</a>
-    <a href="https://calendly.com/hartmanaillc/30min" target="_blank" rel="noopener" class="nav__cta">Book a Call</a>
-  </div>
-</nav>
+<!-- Flowing shader background — fixed, ties the whole page together -->
+<canvas id="flow" class="flow" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-<!-- ── HERO ────────────────────────────────── -->
+<!-- ── NAV: floating glass pill ────────────────── -->
+<header class="nav-wrap">
+  <nav class="nav" id="nav">
+    <a href="#top" class="nav__brand">
+      <img src="assets/mh-logo.png" alt="" class="nav__mark" width="250" height="250">
+      <span class="nav__name">HARTMAN<em>AI</em></span>
+    </a>
+    <div class="nav__links" id="navLinks">
+      <a href="#services" class="nav__link">Services</a>
+      <a href="#how" class="nav__link">How it works</a>
+      <a href="#work" class="nav__link">Recent Work</a>
+      <a href="#cta" class="nav__link">Contact</a>
+    </div>
+    <div class="nav__right">
+      <a href="https://mhartman-11.github.io/audit/" target="_blank" rel="noopener" class="nav__cta" data-magnetic>Book a free audit</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- ── HERO ────────────────────────────────────── -->
 <section class="hero" id="top">
-  <canvas class="hero__mesh" id="heroMesh" aria-hidden="true"></canvas>
   <div class="hero__inner">
-    <div class="hero__tag" id="heroTag">
-      <span class="hero__tag-dot"></span>
-      <span class="hero__tag-text" id="heroTagText">Workflow Automation</span>
+    <div class="hero__status" data-hero-step>
+      <span class="hero__status-dot" aria-hidden="true"></span>
+      <span class="mono hero__status-sys">SYSTEMS ONLINE&nbsp;·&nbsp;</span>
+      <span class="mono hero__status-word" id="heroWord">WORKFLOW AUTOMATION</span>
+      <span class="mono hero__status-caret" aria-hidden="true">_</span>
     </div>
+
     <h1 class="hero__title">
-      AI that works<br>
-      for <em>your</em><br>
-      <span class="hero__title-mark">business<span class="hero__title-dot">.</span></span>
+      <span class="line"><span class="line__inner" data-hero-line>AI that works</span></span>
+      <span class="line"><span class="line__inner" data-hero-line>for <em class="glow-text">your</em> business<span class="accent-dot">.</span></span></span>
     </h1>
-    <p class="hero__sub">We help small businesses automate the repetitive work and put AI where it actually pays off. No 6-month engagements, no buzzwords.</p>
-    <div class="hero__ctas">
-      <a href="https://mhartman-11.github.io/audit/" target="_blank" rel="noopener" class="btn btn--primary">Book a free audit →</a>
-      <a href="#work" class="btn btn--ghost">See recent work</a>
+
+    <p class="hero__sub" data-hero-step>I help small businesses automate the repetitive work and put AI where it actually pays off. No 6-month engagements, no buzzwords.</p>
+
+    <div class="hero__ctas" data-hero-step>
+      <a href="https://mhartman-11.github.io/audit/" target="_blank" rel="noopener" class="btn btn--primary" data-magnetic>
+        Book a free audit
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#work" class="btn btn--ghost" data-magnetic>See recent work</a>
     </div>
-    <div class="hero__stats">
-      <div class="stat"><div class="stat__num">60 min</div><div class="stat__label">free audit</div></div>
-      <div class="stat-rule" aria-hidden="true"></div>
-      <div class="stat"><div class="stat__num">4–6 wk</div><div class="stat__label">avg. engagement</div></div>
-      <div class="stat-rule" aria-hidden="true"></div>
-      <div class="stat"><div class="stat__num">Your stack</div><div class="stat__label">no rip-and-replace</div></div>
+
+    <div class="hero__orb" data-hero-step aria-hidden="true">
+      <div class="orb__ring orb__ring--1"></div>
+      <div class="orb__ring orb__ring--2"></div>
+      <img src="assets/mh-logo.png" alt="" class="orb__mark" width="250" height="250" fetchpriority="high" id="heroOrb">
     </div>
+
+    <div class="hero__stats" data-hero-step>
+      <div class="stat"><div class="stat__num">60 min</div><div class="stat__label mono">FREE AUDIT</div></div>
+      <div class="stat"><div class="stat__num">4–6 wk</div><div class="stat__label mono">AVG. ENGAGEMENT</div></div>
+      <div class="stat"><div class="stat__num">Your stack</div><div class="stat__label mono">NO RIP-AND-REPLACE</div></div>
+    </div>
+  </div>
+  <div class="hero__scroll mono" data-hero-step aria-hidden="true">SCROLL<span class="hero__scroll-line"></span></div>
+</section>
+
+<!-- ── MARQUEE ─────────────────────────────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__seq">
+      <span>Workflow Automation</span><i>◆</i><span>AI Strategy</span><i>◆</i><span>Social Media AI</span><i>◆</i><span>Process Optimization</span><i>◆</i><span>AI Team Training</span><i>◆</i><span>Fractional AI Consulting</span><i>◆</i>
+    </span>
+    <span class="marquee__seq" aria-hidden="true">
+      <span>Workflow Automation</span><i>◆</i><span>AI Strategy</span><i>◆</i><span>Social Media AI</span><i>◆</i><span>Process Optimization</span><i>◆</i><span>AI Team Training</span><i>◆</i><span>Fractional AI Consulting</span><i>◆</i>
+    </span>
+  </div>
+</div>
+
+<!-- ── SERVICES: bento grid ────────────────────── -->
+<section class="section" id="services">
+  <div class="section__head" data-reveal>
+    <div class="section__index mono">[ 01 — WHAT I DO ]</div>
+    <h2 class="section__title">Services built for <em class="glow-text">SMBs.</em></h2>
+    <p class="section__lead">Most engagements wrap in 4 to 6 weeks. No bloated tech stacks. No discovery phase that costs more than the actual work.</p>
+  </div>
+
+  <div class="bento">
+    <article class="card card--wide" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <span class="card__tag mono">CORE SERVICE</span>
+      </div>
+      <h3 class="card__title">Workflow Automation</h3>
+      <p class="card__body">I find the processes eating most of your team's time and automate the boring parts (data entry, client onboarding, status updates). The tools sit on top of what you already run.</p>
+      <div class="card__stat"><span class="card__stat-num">Sits on top</span><span class="card__stat-label mono">OF TOOLS YOU ALREADY RUN</span></div>
+    </article>
+
+    <article class="card" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <span class="card__tag mono">STRATEGY</span>
+      </div>
+      <h3 class="card__title">AI Strategy &amp; Roadmapping</h3>
+      <p class="card__body">Not sure where AI actually fits? I audit your operations, flag the highest-ROI spots, and write a plan your team can act on Monday morning.</p>
+      <div class="card__stat"><span class="card__stat-num">60 min</span><span class="card__stat-label mono">TO A WRITTEN AI ROADMAP</span></div>
+    </article>
+
+    <article class="card" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-2.5 2.5-5 5c-1.5-3-4-5-7-5C5 4 2 7 2 10.5c0 5.5 10 10.5 10 10.5s10-5 10-10.5c0-1-.2-2-.6-2.9"/></svg></div>
+        <span class="card__tag mono">MARKETING</span>
+      </div>
+      <h3 class="card__title">Social Media AI</h3>
+      <p class="card__body">Content calendars, scheduling, and performance reporting, all wired up once. Your team stops writing posts at 9pm on a Sunday.</p>
+      <div class="card__stat"><span class="card__stat-num">Set up once</span><span class="card__stat-label mono">YOUR TEAM OWNS IT AFTER</span></div>
+    </article>
+
+    <article class="card" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <span class="card__tag mono">OPTIMIZATION</span>
+      </div>
+      <h3 class="card__title">Process Optimization</h3>
+      <p class="card__body">I sit with your team, watch the actual workflow, then rebuild it with AI in the spots that earn it. The bar I set is measurable hours saved each week.</p>
+      <div class="card__stat"><span class="card__stat-num">Measured</span><span class="card__stat-label mono">HOURS SAVED EACH WEEK</span></div>
+    </article>
+
+    <article class="card" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <span class="card__tag mono">TRAINING</span>
+      </div>
+      <h3 class="card__title">AI Team Training</h3>
+      <p class="card__body">Half-day or full-day sessions for your team. Prompting basics, the tools your stack actually needs, and the workflows specific to your business. They keep using it after I leave.</p>
+      <div class="card__stat"><span class="card__stat-num">½ or full day</span><span class="card__stat-label mono">LIVE TEAM SESSIONS</span></div>
+    </article>
+
+    <article class="card card--wide" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="card__tag mono">ONGOING</span>
+      </div>
+      <h3 class="card__title">Fractional AI Consulting</h3>
+      <p class="card__body">Need AI help without hiring a full-time person? I work on a monthly retainer (strategy, implementation, troubleshooting, whatever's blocking you that week).</p>
+      <div class="card__stat"><span class="card__stat-num">Flexible</span><span class="card__stat-label mono">MONTHLY RETAINERS</span></div>
+    </article>
   </div>
 </section>
 
-<!-- ── SERVICES ────────────────────────────── -->
-<section class="services services--dark" id="services">
-  <div class="services__head">
-    <div class="eyebrow">What we do</div>
-    <h2 class="section-title">Services built<br><em>for SMBs.</em></h2>
-    <p class="section-lead">Most engagements wrap in 4 to 6 weeks. No bloated tech stacks. No discovery phase that costs more than the actual work.</p>
+<!-- ── HOW IT WORKS ────────────────────────────── -->
+<section class="section" id="how">
+  <div class="section__head" data-reveal>
+    <div class="section__index mono">[ 02 — HOW IT WORKS ]</div>
+    <h2 class="section__title">From first call to <em class="glow-text">working automations</em> in 6 weeks.</h2>
+    <p class="section__lead">I've done this enough times to skip the long discovery phase. The first automation usually ships in week 2. By week 6 your team owns it.</p>
   </div>
-  <div class="services__grid">
 
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-      <div class="service-card__tag">Core Service</div>
-      <h3 class="service-card__title">Workflow Automation</h3>
-      <p class="service-card__body">We find the processes eating most of your team's time and automate the boring parts (data entry, client onboarding, status updates). The tools sit on top of what you already run.</p>
-      <div class="service-card__stat"><span class="service-card__stat-num">Sits on top</span><span class="service-card__stat-label">of tools you already run</span></div>
-    </article>
+  <div class="steps">
+    <div class="step" data-reveal>
+      <div class="step__ghost" aria-hidden="true">01</div>
+      <div class="step__meta mono">WEEK 1</div>
+      <h3 class="step__title">Free workflow audit</h3>
+      <p class="step__body">60 minutes with you and your team. I map where the hours actually go. You walk out with a list of fixes whether you hire me or not.</p>
+    </div>
+    <div class="step" data-reveal>
+      <div class="step__ghost" aria-hidden="true">02</div>
+      <div class="step__meta mono">WEEK 1–2</div>
+      <h3 class="step__title">Custom AI roadmap</h3>
+      <p class="step__body">A written plan: which tools, which processes, in what order. The doc is yours whether you hire me or not.</p>
+    </div>
+    <div class="step" data-reveal>
+      <div class="step__ghost" aria-hidden="true">03</div>
+      <div class="step__meta mono">WEEKS 2–6</div>
+      <h3 class="step__title">Build &amp; integrate</h3>
+      <p class="step__body">I build the first automations while you watch. By week 4 you should see real time savings. Anything that breaks, I fix on the spot.</p>
+    </div>
+    <div class="step" data-reveal>
+      <div class="step__ghost" aria-hidden="true">04</div>
+      <div class="step__meta mono">WEEK 6</div>
+      <h3 class="step__title">Train your team</h3>
+      <p class="step__body">Live training session, written docs, and a recorded walkthrough. If someone new joins your team in 6 months, they can ramp up from the recording.</p>
+    </div>
+  </div>
 
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-      <div class="service-card__tag">Strategy</div>
-      <h3 class="service-card__title">AI Strategy &amp; Roadmapping</h3>
-      <p class="service-card__body">Not sure where AI actually fits? We audit your operations, flag the highest-ROI spots, and write a plan your team can act on Monday morning.</p>
-      <div class="service-card__stat"><span class="service-card__stat-num">60 min</span><span class="service-card__stat-label">to a written AI roadmap</span></div>
-    </article>
-
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-2.5 2.5-5 5c-1.5-3-4-5-7-5C5 4 2 7 2 10.5c0 5.5 10 10.5 10 10.5s10-5 10-10.5c0-1-.2-2-.6-2.9"/></svg></div>
-      <div class="service-card__tag">Marketing</div>
-      <h3 class="service-card__title">Social Media AI</h3>
-      <p class="service-card__body">Content calendars, scheduling, and performance reporting, all wired up once. Your team stops writing posts at 9pm on a Sunday.</p>
-      <div class="service-card__stat"><span class="service-card__stat-num">Set up once</span><span class="service-card__stat-label">your team owns it after</span></div>
-    </article>
-
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-      <div class="service-card__tag">Optimization</div>
-      <h3 class="service-card__title">Process Optimization</h3>
-      <p class="service-card__body">We sit with your team, watch the actual workflow, then rebuild it with AI in the spots that earn it. The bar we set is measurable hours saved each week.</p>
-      <div class="service-card__stat"><span class="service-card__stat-num">Measured</span><span class="service-card__stat-label">hours saved each week</span></div>
-    </article>
-
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-      <div class="service-card__tag">Training</div>
-      <h3 class="service-card__title">AI Team Training</h3>
-      <p class="service-card__body">Half-day or full-day sessions for your team. Prompting basics, the tools your stack actually needs, and the workflows specific to your business. They keep using it after we leave.</p>
-      <div class="service-card__stat"><span class="service-card__stat-num">½ or full day</span><span class="service-card__stat-label">live team sessions</span></div>
-    </article>
-
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="service-card__tag">Ongoing</div>
-      <h3 class="service-card__title">Fractional AI Consulting</h3>
-      <p class="service-card__body">Need AI help without hiring a full-time person? We work on a monthly retainer (strategy, implementation, troubleshooting, whatever's blocking you that week).</p>
-      <div class="service-card__stat"><span class="service-card__stat-num">Flexible</span><span class="service-card__stat-label">monthly retainers</span></div>
-    </article>
-
+  <div class="how__stats" data-reveal>
+    <div class="stat"><div class="stat__num">Free</div><div class="stat__label mono">WORKFLOW AUDIT</div></div>
+    <div class="stat"><div class="stat__num">Wk 2</div><div class="stat__label mono">FIRST AUTOMATION SHIPS</div></div>
+    <div class="stat"><div class="stat__num">Yours</div><div class="stat__label mono">TO KEEP, AUDIT OR NOT</div></div>
   </div>
 </section>
 
-<!-- ── HOW IT WORKS ────────────────────────── -->
-<section class="how" id="how">
-  <div class="how__inner">
-    <div class="how__head">
-      <div class="eyebrow">How it works</div>
-      <h2 class="how__title">From first call to<br><em>working automations</em><br>in 6 weeks.</h2>
-      <p class="how__sub">We've done this enough times to skip the long discovery phase. The first automation usually ships in week 2. By week 6 your team owns it.</p>
-      <div class="how__stats">
-        <div class="stat"><div class="stat__num">Free</div><div class="stat__label">workflow audit</div></div>
-        <div class="stat"><div class="stat__num">Wk 2</div><div class="stat__label">first automation ships</div></div>
-        <div class="stat"><div class="stat__num">Yours</div><div class="stat__label">to keep, audit or not</div></div>
-      </div>
-    </div>
-    <div class="how__steps">
-      <div class="step step--active">
-        <div class="step__line" aria-hidden="true"></div>
-        <div class="step__bubble"><span class="step__num">01</span></div>
-        <div>
-          <div class="step__duration">Week 1</div>
-          <h4 class="step__title">Free workflow audit</h4>
-          <p class="step__body">60 minutes with you and your team. We map where the hours actually go. You walk out with a list of fixes whether you hire us or not.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step__line" aria-hidden="true"></div>
-        <div class="step__bubble"><span class="step__num">02</span></div>
-        <div>
-          <div class="step__duration">Week 1–2</div>
-          <h4 class="step__title">Custom AI roadmap</h4>
-          <p class="step__body">A written plan: which tools, which processes, in what order. The doc is yours whether you hire us or not.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step__line" aria-hidden="true"></div>
-        <div class="step__bubble"><span class="step__num">03</span></div>
-        <div>
-          <div class="step__duration">Weeks 2–6</div>
-          <h4 class="step__title">Build &amp; integrate</h4>
-          <p class="step__body">We build the first automations while you watch. By week 4 you should see real time savings. Anything that breaks, we fix on the spot.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step__bubble"><span class="step__num">04</span></div>
-        <div>
-          <div class="step__duration">Week 6</div>
-          <h4 class="step__title">Train your team</h4>
-          <p class="step__body">Live training session, written docs, and a recorded walkthrough. If someone new joins your team in 6 months, they can ramp up from the recording.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── RECENT WORK ──────────────────────────── -->
-<section class="services" id="work">
-  <div class="services__head">
-    <div class="eyebrow">Recent work</div>
-    <h2 class="section-title">What I'm<br><em>building.</em></h2>
-    <p class="section-lead">Hartman AI is new. Client outcomes are coming. Until then, here's the actual work — a live demo and active builds you can ask me about.</p>
-  </div>
-  <div class="services__grid">
-
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M10 8h.01"/></svg></div>
-      <div class="service-card__tag">Live demo</div>
-      <h3 class="service-card__title">Talent Intel Dashboard</h3>
-      <p class="service-card__body">An interactive demo of what AI-powered talent intelligence looks like in practice. Built end-to-end. Click in and try it.</p>
-      <div class="service-card__stat">
-        <a href="https://talent-intel-dashboard.pages.dev/" target="_blank" rel="noopener" class="service-card__stat-num service-card__link">Open demo →</a>
-      </div>
-    </article>
-
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-      <div class="service-card__tag">Active build</div>
-      <h3 class="service-card__title">Mortgage industry coach</h3>
-      <p class="service-card__body">Social media content engine for a residential mortgage coach. LinkedIn + Facebook drafts, image pairing, weekly approval loop, scheduled distribution.</p>
-      <div class="service-card__stat"><span class="service-card__stat-num">In production</span><span class="service-card__stat-label">weekly content cycle</span></div>
-    </article>
-
-    <article class="service-card">
-      <div class="service-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="service-card__tag">Active build</div>
-      <h3 class="service-card__title">Career platform</h3>
-      <p class="service-card__body">TA workflow automation for a career platform — candidate sourcing, screening, and outreach pipelines wired into their existing stack.</p>
-      <div class="service-card__stat"><span class="service-card__stat-num">In production</span><span class="service-card__stat-label">live engagement</span></div>
-    </article>
-
+<!-- ── RECENT WORK ─────────────────────────────── -->
+<section class="section" id="work">
+  <div class="section__head" data-reveal>
+    <div class="section__index mono">[ 03 — RECENT WORK ]</div>
+    <h2 class="section__title">What I'm <em class="glow-text">building.</em></h2>
+    <p class="section__lead">Hartman AI is new. Client outcomes are coming. Until then, here's the actual work — a live demo and active builds you can ask me about.</p>
   </div>
 
-  <div class="work__follow">
+  <div class="bento bento--three">
+    <a href="https://talent-intel-dashboard.pages.dev/" target="_blank" rel="noopener" class="card card--link" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M10 8h.01"/></svg></div>
+        <span class="card__tag card__tag--live mono"><span class="live-dot" aria-hidden="true"></span>LIVE DEMO</span>
+      </div>
+      <h3 class="card__title">Talent Intel Dashboard</h3>
+      <p class="card__body">An interactive demo of what AI-powered talent intelligence looks like in practice. Built end-to-end. Click in and try it.</p>
+      <div class="card__stat"><span class="card__stat-num card__open">Open demo
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+
+    <article class="card" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <span class="card__tag mono">ACTIVE BUILD</span>
+      </div>
+      <h3 class="card__title">Mortgage industry coach</h3>
+      <p class="card__body">Social media content engine for a residential mortgage coach. LinkedIn + Facebook drafts, image pairing, weekly approval loop, scheduled distribution.</p>
+      <div class="card__stat"><span class="card__stat-num">In production</span><span class="card__stat-label mono">WEEKLY CONTENT CYCLE</span></div>
+    </article>
+
+    <article class="card" data-reveal data-tilt>
+      <div class="card__glow" aria-hidden="true"></div>
+      <div class="card__top">
+        <div class="card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="card__tag mono">ACTIVE BUILD</span>
+      </div>
+      <h3 class="card__title">Career platform</h3>
+      <p class="card__body">TA workflow automation for a career platform — candidate sourcing, screening, and outreach pipelines wired into their existing stack.</p>
+      <div class="card__stat"><span class="card__stat-num">In production</span><span class="card__stat-label mono">LIVE ENGAGEMENT</span></div>
+    </article>
+  </div>
+
+  <div class="work__follow" data-reveal>
     <p class="work__follow-copy">Want to see the day-to-day? I post AI, productivity, and workflow tips on LinkedIn.</p>
-    <a href="https://www.linkedin.com/in/mike-hartman-13614224/recent-activity/all/" target="_blank" rel="noopener" class="btn btn--ghost">Follow on LinkedIn →</a>
+    <a href="https://www.linkedin.com/in/mike-hartman-13614224/recent-activity/all/" target="_blank" rel="noopener" class="btn btn--ghost" data-magnetic>Follow on LinkedIn
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
   </div>
 </section>
 
-<!-- ── CTA ─────────────────────────────────── -->
-<section class="cta" id="cta">
-  <div class="cta__blob" aria-hidden="true"></div>
-  <div class="cta__inner">
-    <img src="assets/mh-logo.png" alt="" class="cta__mark">
-    <div class="cta__eyebrow">Ready to start?</div>
-    <h2 class="cta__title">Book a free<br><em>workflow audit.</em></h2>
-    <p class="cta__sub">60 minutes on Zoom. We map where AI helps and where it doesn't. You leave with a one-page summary — top friction points and quick wins. Yours to keep.</p>
-    <div class="cta__ctas">
-      <a href="https://mhartman-11.github.io/audit/" target="_blank" rel="noopener" class="btn btn--cta">Book free audit →</a>
-      <a href="#services" class="btn btn--ghost-light">View services</a>
+<!-- ── CTA ─────────────────────────────────────── -->
+<section class="section section--cta" id="cta">
+  <div class="cta-panel" data-reveal>
+    <div class="cta-panel__beam" aria-hidden="true"></div>
+    <img src="assets/mh-logo.png" alt="" class="cta-panel__mark" width="250" height="250" loading="lazy">
+    <div class="section__index mono">[ 04 — READY TO START? ]</div>
+    <h2 class="cta-panel__title">Book a free <em class="glow-text">workflow audit.</em></h2>
+    <p class="cta-panel__sub">60 minutes on Zoom. I map where AI helps and where it doesn't. You leave with a one-page summary of top friction points and quick wins. Yours to keep.</p>
+    <div class="cta-panel__ctas">
+      <a href="https://mhartman-11.github.io/audit/" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-magnetic>
+        Book free audit
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#services" class="btn btn--ghost" data-magnetic>View services</a>
     </div>
   </div>
 </section>
+</main>
 
-<!-- ── FOOTER ──────────────────────────────── -->
+<!-- ── FOOTER ──────────────────────────────────── -->
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__cols">
-      <div>
-        <a href="#top" class="footer__brand-row" aria-label="Hartman AI home">
-          <img src="assets/mh-logo.png" alt="Hartman AI" class="footer__brand-mark">
+      <div class="footer__brand">
+        <a href="#top" class="nav__brand">
+          <img src="assets/mh-logo.png" alt="" class="nav__mark" width="250" height="250" loading="lazy">
+          <span class="nav__name">HARTMAN<em>AI</em></span>
         </a>
-        <p class="footer__brand-blurb">AI consulting for SMBs. We work with founders and ops leaders who want practical fixes they can actually run.</p>
-        <div class="footer__social">
-          <a href="https://www.linkedin.com/in/mike-hartman-13614224/recent-activity/all/" target="_blank" rel="noopener" class="footer__social-btn">LinkedIn</a>
+        <p class="footer__blurb">AI consulting for SMBs. I work with founders and ops leaders who want practical fixes they can actually run.</p>
+        <a href="https://www.linkedin.com/in/mike-hartman-13614224/recent-activity/all/" target="_blank" rel="noopener" class="footer__social mono">LINKEDIN ↗</a>
+      </div>
+      <div>
+        <div class="footer__head mono">SERVICES</div>
+        <div class="footer__list">
+          <a href="#services" class="footer__link">Workflow Automation</a>
+          <a href="#services" class="footer__link">AI Strategy</a>
+          <a href="#services" class="footer__link">Social Media AI</a>
+          <a href="#services" class="footer__link">Process Optimization</a>
+          <a href="#services" class="footer__link">AI Training</a>
         </div>
       </div>
       <div>
-        <div class="footer__col-head">Services</div>
-        <div class="footer__col-list">
-          <a href="#services" class="footer__col-link">Workflow Automation</a>
-          <a href="#services" class="footer__col-link">AI Strategy</a>
-          <a href="#services" class="footer__col-link">Social Media AI</a>
-          <a href="#services" class="footer__col-link">Process Optimization</a>
-          <a href="#services" class="footer__col-link">AI Training</a>
+        <div class="footer__head mono">COMPANY</div>
+        <div class="footer__list">
+          <a href="#work" class="footer__link">Recent Work</a>
+          <a href="#how" class="footer__link">How it works</a>
+          <a href="#cta" class="footer__link">Book free audit</a>
         </div>
       </div>
       <div>
-        <div class="footer__col-head">Company</div>
-        <div class="footer__col-list">
-          <a href="#work" class="footer__col-link">Recent Work</a>
-          <a href="#how" class="footer__col-link">How it works</a>
-          <a href="#cta" class="footer__col-link">Book a call</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__col-head">Contact</div>
-        <div class="footer__col-list">
-          <a href="https://calendly.com/hartmanaillc/30min" target="_blank" rel="noopener" class="footer__col-link">Book a Call</a>
-          <a href="mailto:hartmanaillc@gmail.com" class="footer__col-link">hartmanaillc@gmail.com</a>
-          <span class="footer__col-link">Based in the US</span>
-          <span class="footer__col-link">Remote-first</span>
+        <div class="footer__head mono">CONTACT</div>
+        <div class="footer__list">
+          <a href="https://calendly.com/hartmanaillc/30min" target="_blank" rel="noopener" class="footer__link">Book a 30-min call</a>
+          <a href="mailto:hartmanaillc@gmail.com" class="footer__link">hartmanaillc@gmail.com</a>
+          <span class="footer__link footer__link--static">Based in the US</span>
+          <span class="footer__link footer__link--static">Remote-first</span>
         </div>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copy">© 2026 Hartman AI. All rights reserved.</span>
-      <div class="footer__legal">
-        <a href="#" class="footer__legal-link">Privacy Policy</a>
-        <a href="#" class="footer__legal-link">Terms of Service</a>
-      </div>
+      <span class="mono footer__copy">© 2026 HARTMAN AI — ALL RIGHTS RESERVED</span>
+      <span class="mono footer__copy">BUILT WITH AI, OBVIOUSLY</span>
     </div>
   </div>
 </footer>
 
-<script src="mesh.js"></script>
+<script src="flow.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
