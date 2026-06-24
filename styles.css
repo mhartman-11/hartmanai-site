@@ -280,15 +280,15 @@ section, header, footer, .marquee { position: relative; z-index: var(--z-content
 /* Orb — brand mark in a hologram ring */
 .hero__orb {
   position: absolute;
-  right: -40px; top: -30px;
-  width: clamp(150px, 16vw, 220px);
+  right: clamp(-120px, -5vw, -56px); top: -72px;
+  width: clamp(140px, 15vw, 200px);
   aspect-ratio: 1;
   display: flex; align-items: center; justify-content: center;
   z-index: 0;
   opacity: 0.9;
 }
 .orb__mark {
-  width: 80%;
+  width: 62%;
   filter: drop-shadow(0 0 30px rgba(232, 213, 160, 0.3));
   animation: orb-bob 6s ease-in-out infinite;
 }
@@ -669,9 +669,10 @@ a.footer__link:hover { color: var(--ochre); }
   .bento { grid-template-columns: repeat(2, 1fr); }
   .bento--three { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
-  .hero__orb { right: -10px; top: -50px; opacity: 0.5; }
+  .hero__orb { right: -48px; top: -60px; opacity: 0.5; }
 }
 @media (max-width: 880px) {
+  .hero__orb { display: none; }
   .nav__links { display: none; }
   .nav__links.is-open {
     display: flex;
@@ -695,7 +696,6 @@ a.footer__link:hover { color: var(--ochre); }
   .hero__stats .stat { padding: 16px 20px; flex: 1; }
 }
 @media (max-width: 640px) {
-  .hero__orb { display: none; }
   .hero__status-sys { display: none; }
   .bento, .bento--three, .steps { grid-template-columns: 1fr; }
   .card--wide { grid-column: span 1; }
