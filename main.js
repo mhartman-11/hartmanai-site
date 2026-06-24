@@ -15,7 +15,7 @@
   });
 
   /* ── Hero terminal word: type / hold / erase ── */
-  const words = ['WORKFLOW AUTOMATION', 'AI STRATEGY', 'SOCIAL MEDIA AI', 'PROCESS OPTIMIZATION'];
+  const words = ['HOURS BACK', 'WORKFLOW AUTOMATION', 'AI ROADMAPS', 'ONGOING SUPPORT'];
   const wordEl = document.getElementById('heroWord');
   if (wordEl && !reduceMotion) {
     let wi = 0;
@@ -166,4 +166,41 @@
       navToggle?.setAttribute('aria-expanded', 'false');
     });
   });
+
+  /* ── ROI calculator ────────────────────────── */
+  const calcHours = document.getElementById('calcHours');
+  const calcRate = document.getElementById('calcRate');
+  const calcPct = document.getElementById('calcPct');
+  if (calcHours && calcRate && calcPct) {
+    const pctLabel = document.getElementById('calcPctLabel');
+    const elWeekly = document.getElementById('calcWeekly');
+    const elMonth = document.getElementById('calcMonth');
+    const elYear = document.getElementById('calcYear');
+    const elPay = document.getElementById('calcPayback');
+    const money = (n) => '$' + Math.round(n).toLocaleString('en-US');
+    const update = () => {
+      const hours = Math.max(0, parseFloat(calcHours.value) || 0);
+      const rate = Math.max(0, parseFloat(calcRate.value) || 0);
+      const pct = (parseInt(calcPct.value, 10) || 0) / 100;
+      pctLabel.textContent = Math.round(pct * 100) + '%';
+      const weeklyHrs = hours * pct;
+      const weeklyDollars = weeklyHrs * rate;
+      if (hours <= 0 || rate <= 0) {
+        elWeekly.textContent = '—';
+        elMonth.textContent = '—';
+        elYear.textContent = '—';
+        elPay.textContent = 'Enter your numbers to see what a $999 assessment pays back.';
+        return;
+      }
+      elWeekly.textContent = (Math.round(weeklyHrs * 10) / 10) + ' hrs';
+      elMonth.textContent = money(weeklyDollars * 4.33);
+      elYear.textContent = money(weeklyDollars * 52);
+      const weeks = Math.ceil(999 / weeklyDollars);
+      elPay.textContent = weeks <= 1
+        ? 'At that rate, a $999 assessment pays for itself in its first week.'
+        : `At that rate, a $999 assessment pays for itself in about ${weeks} weeks.`;
+    };
+    [calcHours, calcRate, calcPct].forEach(el => el.addEventListener('input', update));
+    update();
+  }
 })();
