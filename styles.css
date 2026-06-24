@@ -141,6 +141,7 @@ section, header, footer, .marquee { position: relative; z-index: var(--z-content
   color: var(--cream);
 }
 .nav__name em { font-style: normal; color: var(--ochre); }
+.nav__wordmark { height: 30px; width: auto; object-fit: contain; }
 .nav__links { display: flex; gap: 4px; }
 .nav__link {
   font-family: var(--font-display);
