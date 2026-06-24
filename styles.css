@@ -133,15 +133,7 @@ section, header, footer, .marquee { position: relative; z-index: var(--z-content
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
 }
 .nav__brand { display: inline-flex; align-items: center; gap: 10px; }
-.nav__mark { width: 34px; height: 34px; object-fit: contain; }
-.nav__name {
-  font-family: var(--font-display);
-  font-size: 15px; font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--cream);
-}
-.nav__name em { font-style: normal; color: var(--ochre); }
-.nav__wordmark { height: 30px; width: auto; object-fit: contain; }
+.nav__mark { width: 46px; height: 46px; object-fit: contain; }
 .nav__links { display: flex; gap: 4px; }
 .nav__link {
   font-family: var(--font-display);
@@ -296,7 +288,7 @@ section, header, footer, .marquee { position: relative; z-index: var(--z-content
   opacity: 0.9;
 }
 .orb__mark {
-  width: 58%;
+  width: 80%;
   filter: drop-shadow(0 0 30px rgba(232, 213, 160, 0.3));
   animation: orb-bob 6s ease-in-out infinite;
 }
