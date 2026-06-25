@@ -418,6 +418,7 @@ section, header, footer, .marquee { position: relative; z-index: var(--z-content
   gap: 14px;
 }
 .bento--three { grid-template-columns: repeat(3, 1fr); }
+.bento--four { grid-template-columns: repeat(2, 1fr); }
 .card--wide { grid-column: span 2; }
 
 .card {
@@ -817,8 +818,9 @@ a.footer__link:hover { color: var(--ochre); }
   .founder__lead { text-align: center; }
 }
 @media (max-width: 640px) {
-  .hero__status-sys { display: none; }
-  .bento, .bento--three, .steps { grid-template-columns: 1fr; }
+  .hero__status { white-space: nowrap; padding: 8px 14px; }
+  .hero__status .mono { font-size: 10px; letter-spacing: 0.1em; }
+  .bento, .bento--three, .bento--four, .steps { grid-template-columns: 1fr; }
   .card--wide { grid-column: span 1; }
   .hero__stats { width: 100%; flex-direction: column; }
   .hero__stats .stat + .stat { border-left: none; border-top: 1px solid var(--line); }

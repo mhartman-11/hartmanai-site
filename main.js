@@ -15,30 +15,39 @@
   });
 
   /* ── Hero terminal word: type / hold / erase ── */
-  const words = ['HOURS BACK', 'WORKFLOW AUTOMATION', 'AI ROADMAPS', 'ONGOING SUPPORT'];
+  const words = ['HOURS BACK', 'AUTOMATION', 'AI ROADMAPS', 'SUPPORT'];
   const wordEl = document.getElementById('heroWord');
-  if (wordEl && !reduceMotion) {
+  if (wordEl) {
     let wi = 0;
-    const type = (text, i, done) => {
-      wordEl.textContent = text.slice(0, i);
-      if (i <= text.length) setTimeout(() => type(text, i + 1, done), 42);
-      else done();
-    };
-    const erase = (done) => {
-      const cur = wordEl.textContent;
-      wordEl.textContent = cur.slice(0, -1);
-      if (cur.length > 1) setTimeout(() => erase(done), 22);
-      else done();
-    };
-    const cycle = () => {
-      setTimeout(() => {
-        erase(() => {
-          wi = (wi + 1) % words.length;
-          type(words[wi], 0, cycle);
-        });
-      }, 2400);
-    };
-    cycle();
+    if (reduceMotion) {
+      /* Reduce-motion (default on many phones): plain swap, no typing */
+      wordEl.textContent = words[0];
+      setInterval(() => {
+        wi = (wi + 1) % words.length;
+        wordEl.textContent = words[wi];
+      }, 2600);
+    } else {
+      const type = (text, i, done) => {
+        wordEl.textContent = text.slice(0, i);
+        if (i <= text.length) setTimeout(() => type(text, i + 1, done), 42);
+        else done();
+      };
+      const erase = (done) => {
+        const cur = wordEl.textContent;
+        wordEl.textContent = cur.slice(0, -1);
+        if (cur.length > 1) setTimeout(() => erase(done), 22);
+        else done();
+      };
+      const cycle = () => {
+        setTimeout(() => {
+          erase(() => {
+            wi = (wi + 1) % words.length;
+            type(words[wi], 0, cycle);
+          });
+        }, 2400);
+      };
+      cycle();
+    }
   }
 
   /* ── Scroll reveal ─────────────────────────── */
@@ -57,6 +66,22 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealIO.observe(el));
+
+    /* Safety net: some mobile browsers miss IO callbacks on fast scroll.
+       Reveal anything that's in view but still hidden. */
+    const revealFallback = () => {
+      const vh = window.innerHeight;
+      revealEls.forEach(el => {
+        if (el.classList.contains('is-in')) return;
+        if (el.getBoundingClientRect().top < vh * 0.92) {
+          el.classList.add('is-in');
+          revealIO.unobserve(el);
+        }
+      });
+    };
+    addEventListener('scroll', revealFallback, { passive: true });
+    addEventListener('load', revealFallback);
+    setTimeout(revealFallback, 1400);
   }
 
   /* ── Card tilt + cursor spotlight ──────────── */
