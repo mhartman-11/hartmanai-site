@@ -1,6 +1,11 @@
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
+  /* Touch devices: IntersectionObserver reveal callbacks get missed during
+     momentum scroll and nav anchor-jumps, leaving sections stuck at opacity 0.
+     On coarse pointers, skip the scroll-gated reveal and just show everything. */
+  const coarsePointer = window.matchMedia('(pointer: coarse)').matches
+    || window.matchMedia('(hover: none)').matches;
 
   /* ── Hero entrance ─────────────────────────── */
   const heroSteps = document.querySelectorAll('[data-hero-step]');
@@ -52,7 +57,7 @@
 
   /* ── Scroll reveal ─────────────────────────── */
   const revealEls = document.querySelectorAll('[data-reveal]');
-  if (!('IntersectionObserver' in window) || reduceMotion) {
+  if (!('IntersectionObserver' in window) || reduceMotion || coarsePointer) {
     revealEls.forEach(el => el.classList.add('is-in'));
   } else {
     const revealIO = new IntersectionObserver((entries) => {
