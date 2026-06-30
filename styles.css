@@ -279,11 +279,11 @@ section, header, footer, .marquee { position: relative; z-index: var(--z-content
 
 /* Orb — brand mark in a hologram ring */
 .hero__orb {
-  position: absolute;
-  right: clamp(-120px, -5vw, -56px); top: -72px;
-  width: clamp(140px, 15vw, 200px);
+  position: relative;
+  width: clamp(220px, 24vw, 320px);
   aspect-ratio: 1;
   display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 32px;
   z-index: 0;
   opacity: 0.9;
 }
@@ -787,16 +787,12 @@ a.footer__link:hover { color: var(--ochre); }
   .bento { grid-template-columns: repeat(2, 1fr); }
   .bento--three { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
-  .hero__orb { right: -48px; top: -60px; opacity: 0.5; }
+  .hero__orb { width: clamp(190px, 26vw, 260px); }
 }
 @media (max-width: 880px) {
   .hero__orb {
-    display: flex;
-    position: relative;
-    right: auto; top: auto;
-    margin: 14px auto 4px;
-    width: clamp(150px, 44vw, 200px);
-    opacity: 0.9;
+    width: clamp(160px, 48vw, 220px);
+    margin-bottom: 24px;
   }
   .nav__links { display: none; }
   .nav__links.is-open {
